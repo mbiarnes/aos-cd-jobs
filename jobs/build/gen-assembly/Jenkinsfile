@@ -18,8 +18,8 @@ node {
                 disableResume(),
                 buildDiscarder(
                     logRotator(
-                        artifactDaysToKeepStr: "50",
-                        daysToKeepStr: "50"
+                        artifactDaysToKeepStr: "5",
+                        daysToKeepStr: "5"
                         )),
                 [
                     $class: "ParametersDefinitionProperty",
@@ -34,7 +34,7 @@ node {
                         string(
                             name: 'DOOZER_DATA_PATH',
                             description: 'ocp-build-data fork to use (e.g. assembly definition in your own fork)',
-                            defaultValue: "https://github.com/openshift-eng/ocp-build-data",
+                            defaultValue: "https://github.com/mbiarnes/ocp-build-data",
                             trim: true,
                         ),
                         string(
@@ -88,12 +88,12 @@ node {
                         booleanParam(
                             name: "DRY_RUN",
                             description: "Take no action, just echo what the job would have done.",
-                            defaultValue: false
+                            defaultValue: true
                         ),
                         booleanParam(
                             name: "TRIGGER_BUILD_SYNC",
                             description: "Automatically trigger build sync against the automatically created PR",
-                            defaultValue: true
+                            defaultValue: false
                         ),
                         booleanParam(
                             name: "SKIP_GET_NIGHTLIES",
