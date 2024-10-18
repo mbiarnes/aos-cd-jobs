@@ -16,8 +16,8 @@ node {
                 disableResume(),
                 buildDiscarder(
                     logRotator(
-                        artifactDaysToKeepStr: "45",
-                        daysToKeepStr: "45")),
+                        artifactDaysToKeepStr: "5",
+                        daysToKeepStr: "5")),
                 [
                     $class: "ParametersDefinitionProperty",
                     parameterDefinitions: [
@@ -47,7 +47,7 @@ node {
                         string(
                             name: "PACKAGE_OWNER",
                             description: "(Optional) Must be an individual email address; may be anyone who wants random advisory spam",
-                            defaultValue: "jdelft@redhat.com",
+                            defaultValue: "mbiarnes@redhat.com",
                             trim: true
                         ),
                         booleanParam(
@@ -63,7 +63,7 @@ node {
                         booleanParam(
                             name: "DRY_RUN",
                             description: "Take no action, just echo what the job would have done.",
-                            defaultValue: false
+                            defaultValue: true
                         ),
                         commonlib.mockParam(),
                     ]
