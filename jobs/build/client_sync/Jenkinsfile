@@ -3,6 +3,7 @@ node {
     timestamps {
     checkout scm
     commonlib = load("pipeline-scripts/commonlib.groovy")
+    env.ART_TOOLS_COMMIT = 'mbiarnes@mirror3'
 
     base_path = "/mnt/redhat"
 
