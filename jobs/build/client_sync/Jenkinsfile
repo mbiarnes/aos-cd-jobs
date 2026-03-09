@@ -34,7 +34,7 @@ node {
         Sync developer client binaries to mirror
         --------------------------
         From: https://download.eng.bos.redhat.com/
-        To: https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/
+        To: https://mirror3.openshift.com/pub/openshift-v4/x86_64/clients/
 
         Supported clients:
         ${kinds.each { println "${it}" }}
@@ -94,7 +94,7 @@ node {
     currentBuild.displayName = "#${currentBuild.number} - ${kind} ${params.VERSION}${(params.DRY_RUN) ? " [DRY_RUN]" : ""}"
 
     if (kind in ["crc", "odo", "helm"]) {
-        error "${kind} is published through Content Gateway now. The mirror.openshift.com path is, under the covers, proxying the request to developers.redhat.com"
+        error "${kind} is published through Content Gateway now. The mirror3.openshift.com path is, under the covers, proxying the request to developers.redhat.com"
     }
 
     stage("Validate params") {
